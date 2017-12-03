@@ -4,7 +4,7 @@ package rpc
 type call struct {
 	ID           uint64
 	Arg          interface{}
-	CallerPort   int
+	CallerPort   uint16
 	CallerAddr   string
 	IsPassedCall bool // indicates whether CallerAddr or sender's address should be used
 }

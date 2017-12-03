@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net"
 	"reflect"
-	"strconv"
 	"sync"
 
 	"github.com/anteater2/bitmesh/message"
@@ -28,7 +27,7 @@ type Callee struct {
 }
 
 // NewCallee creates a new instance of Callee
-func NewCallee(port int) (*Callee, error) {
+func NewCallee(port uint16) (*Callee, error) {
 	var c Callee
 	var err error
 	c.sender = message.NewSender()
@@ -173,10 +172,10 @@ func checkImplTypeMayReturn(f interface{}) (t reflect.Type, v reflect.Type, ok b
 	return fType.In(0), fType.Out(0), true
 }
 
-func changePort(addr string, port int) string {
+func changePort(addr string, port uint16) string {
 	host, _, err := net.SplitHostPort(addr)
 	if err != nil {
 		panic(err)
 	}
-	return net.JoinHostPort(host, strconv.Itoa(port))
+	return net.JoinHostPort(host, fmt.Sprintf("%d", port))
 }

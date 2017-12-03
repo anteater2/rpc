@@ -24,7 +24,7 @@ type Receiver struct {
 }
 
 // NewReceiver creates a new instance of Receiver
-func NewReceiver(port int, handler func(string, interface{})) (*Receiver, error) {
+func NewReceiver(port uint16, handler func(string, interface{})) (*Receiver, error) {
 	laddr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		return nil, err
