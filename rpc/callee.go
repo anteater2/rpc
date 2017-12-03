@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/anteater2/bitmesh/message"
+	"../message"
 )
 
 type remoteFuncType int
