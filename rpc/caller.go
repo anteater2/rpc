@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"../message"
+	"github.com/anteater2/bitmesh/message"
 )
 
 // Caller represents a caller service where remote functions are declared.
